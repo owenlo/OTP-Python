@@ -1,9 +1,12 @@
+"""Randomised One-Time Pad encryption and decryption functions in Python."""
+
 import random
 
 charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
 
 def main():
+    """Demo usage of functions."""
     vector = "Once more into the fray."
     encrypted = encrypt(vector)
     decrypted = decrypt(encrypted[0], encrypted[1])
@@ -15,6 +18,11 @@ def main():
 
 
 def encrypt(plaintext):
+    """Encrypt plaintext value.
+
+    Keyword arguments:
+    plaintext -- the plaintext value to encrypt.
+    """
     otp = "".join(random.sample(charset, len(charset)))
     result = ""
 
@@ -28,6 +36,12 @@ def encrypt(plaintext):
 
 
 def decrypt(otp, secret):
+    """Decrypt secret value.
+
+    Keyword arguments:
+    otp -- the one-time pad used when the secret value was encrypted.
+    secret -- the value to be decrypted.
+    """
     result = ""
 
     for c in secret.upper():

@@ -2,8 +2,9 @@ import random
 
 charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
+
 def main():
-    vector = "Once more into the fray."    
+    vector = "Once more into the fray."
     encrypted = encrypt(vector)
     decrypted = decrypt(encrypted[0], encrypted[1])
 
@@ -12,7 +13,8 @@ def main():
     print("Encrypted: " + encrypted[1])
     print("Decrypted: " + decrypted)
 
-def encrypt(plaintext):       
+
+def encrypt(plaintext):
     otp = "".join(random.sample(charset, len(charset)))
     result = ""
 
@@ -22,7 +24,8 @@ def encrypt(plaintext):
         else:
             result += otp[charset.find(c)]
 
-    return(otp, result)
+    return otp, result
+
 
 def decrypt(otp, secret):
     result = ""
@@ -33,7 +36,8 @@ def decrypt(otp, secret):
         else:
             result += charset[otp.find(c)]
 
-    return(result)
-                                          
+    return result
+
+
 if __name__ == "__main__":
     main()
